@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.m2i</groupId>
-    <artifactId>rest-lesson</artifactId>
+    <artifactId>java-api-rest</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>rest-lesson</name>
+    <name>java-api-rest</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
