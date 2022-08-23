@@ -1,4 +1,4 @@
-package com.m2i.java.api.rest;
+package fr.m2i.java.api.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
