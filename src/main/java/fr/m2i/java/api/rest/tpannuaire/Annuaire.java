@@ -39,14 +39,14 @@ public class Annuaire {
     
     public void updatePerson(Personne personData){
         
-         Personne personToUpdate = personList.get(personData.getId());
+         Personne personToUpdate = personList.get(personData.getId()-1);
          personToUpdate.setNom(personData.getNom());
          personToUpdate.setPrenom(personData.getPrenom());
         
     }
     public void deletePerson(int id){
         
-        personList.remove(id);
+        personList.remove(id-1);
         
     }
     
