@@ -2,6 +2,7 @@
 package fr.m2i.java.api.rest.annuairetp;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -25,6 +26,7 @@ public class AnnuaireDAO {
     }
 
     public List<Personne> getPersonnes() {
+       
         return personnes;
     }
     
@@ -49,6 +51,21 @@ public class AnnuaireDAO {
         return true ;
         
         
+    }
+    
+     public boolean update(Long id, Personne personne) {
+
+        Personne toUpdate = getPersonneById(id);
+
+        if (toUpdate == null) {
+            return false;
+        }
+
+        personnes.remove(toUpdate);
+        personne.setId(id);
+        personnes.add(personne);
+
+        return true;
     }
     
 }
