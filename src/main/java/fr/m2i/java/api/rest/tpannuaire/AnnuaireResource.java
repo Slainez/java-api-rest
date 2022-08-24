@@ -44,25 +44,38 @@ public class AnnuaireResource {
        
     }
    
-      // URI : /annuaire/create 
+      // URI : /annuaire
       @POST
-      @Path("/create")
+      @Consumes(MediaType.APPLICATION_JSON)
       @Produces(MediaType.APPLICATION_JSON)
       public Response addPerson(Personne person , @Context HttpServletRequest request){
           
           if(request.getSession().getAttribute("annuaire") != null){
+              
               Annuaire annuaire = (Annuaire) request.getSession().getAttribute("annuaire");
+              
               annuaire.addPerson(person);
-               return Response.status(Response.Status.NO_CONTENT).build();
+              request.getSession().setAttribute("annuaire",annuaire);
+              
+             return Response.status(Response.Status.NO_CONTENT).build();
+               
           }else{
               Annuaire annuaire = new Annuaire() ;
               annuaire.addPerson(person);
-              request.setAttribute("annuaire",annuaire);
+              request.getSession().setAttribute("annuaire",annuaire);
                return Response.status(Response.Status.CREATED).build();
           }
         
        }
        
+      
+      
+      
+      
+      
+      
+      
+      
        // URI  : /annuaire/1
        @PUT
        @Path("/{id}")
@@ -80,7 +93,7 @@ public class AnnuaireResource {
        }
        
        // URI  : /annuaire/1
-        @DELETE
+       @DELETE
        @Path("/{id}")
        public Response deletePerson(@PathParam("id") int id , @Context HttpServletRequest request){
             if(request.getSession().getAttribute("annuaire") != null){
