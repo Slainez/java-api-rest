@@ -24,34 +24,23 @@ public class AuthFilter implements ContainerRequestFilter {
     public void filter(ContainerRequestContext requestContext) throws IOException {
         
         // On recupere les identififants et mot de passe dans le header
-        String auth = requestContext.getHeaderString("Authorization");
+        String auth = requestContext.getHeaderString("Authorization");        
+       checkNotNull(auth);
         
-        if (auth == null)
-            throw new WebApplicationException(
+        String[] lap = BasicAuth.decode(auth);        
+       checkNotNull(lap);
+        if(lap.length != 2){
+         throw new WebApplicationException(
                         Response.status(Response.Status.UNAUTHORIZED)
                                 .entity("You must be connected !")
-                                .build()
-            );
-        
-        String[] lap = BasicAuth.decode(auth);
-        
-        if (lap == null || lap.length != 2)
-            throw new WebApplicationException(
-                        Response.status(Response.Status.UNAUTHORIZED)
-                                .entity("You must be connected !")
-                                .build()
-            );
-        
-        User authentified = checkUser(lap[0] , lap[1]);
-        
-         if (authentified == null )
-            throw new WebApplicationException(
-                        Response.status(Response.Status.UNAUTHORIZED)
-                                .entity("You must be connected !")
-                                .build()
-            );
-        
+                                .build());
        
+      }
+     
+     
+        User authentified = checkUser(lap[0] , lap[1]);        
+        checkNotNull(authentified);
+
     }
      public User checkUser(String email, String password) {
         User admin = new User("Super", "admin", "SUPER_ADMIN", "super@admin.com", "admin");
@@ -62,6 +51,20 @@ public class AuthFilter implements ContainerRequestFilter {
 
         return null;
     }
+     
+     
+     public boolean checkNotNull (Object object){
+         
+         if(object == null){
+              throw new WebApplicationException(
+                        Response.status(Response.Status.UNAUTHORIZED)
+                                .entity("You must be connected !")
+                                .build());              
+         }
+         
+         return true ;
+         
+     }
     
     
 }

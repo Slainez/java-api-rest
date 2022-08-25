@@ -7,6 +7,7 @@ D:\Formation JAVA M2I\java-rest\java-api-rest\src\main\java\fr\m2i\java\api\rest
 D:\Formation JAVA M2I\java-rest\java-api-rest\src\main\java\fr\m2i\java\api\rest\BookResource.java
 D:\Formation JAVA M2I\java-rest\java-api-rest\src\main\java\fr\m2i\java\api\rest\tpuser\resource\UserResource.java
 D:\Formation JAVA M2I\java-rest\java-api-rest\src\main\java\fr\m2i\java\api\rest\tpannuaire\AnnuaireResource.java
+D:\Formation JAVA M2I\java-rest\java-api-rest\src\main\java\fr\m2i\java\api\rest\tpuser\dao\UserDAO.java
 D:\Formation JAVA M2I\java-rest\java-api-rest\src\main\java\fr\m2i\java\api\rest\tpannuaire\Annuaire.java
 D:\Formation JAVA M2I\java-rest\java-api-rest\src\main\java\fr\m2i\java\api\rest\tpuser\filter\AuthFilter.java
 D:\Formation JAVA M2I\java-rest\java-api-rest\src\main\java\fr\m2i\java\api\rest\Book.java
